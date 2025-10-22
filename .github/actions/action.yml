@@ -409,14 +409,6 @@ runs:
         CONFIG_KSU_SUSFS_SUS_SU=n
         CONFIG_TMPFS_XATTR=y
         CONFIG_TMPFS_POSIX_ACL=y
-        EOF
-
-    - name: Add Docker
-      shell: bash
-      run: |
-        set -euo pipefail
-        cd "$CONFIG/kernel_platform"
-        cat >> common/arch/arm64/configs/gki_defconfig <<EOF
         CONFIG_NAMESPACES=y
         CONFIG_MULTIUSER=y
         CONFIG_NET=y
@@ -575,14 +567,6 @@ runs:
         CONFIG_IP_SET_HASH_NETPORT=y
         CONFIG_IP_SET_HASH_NETIFACE=y
         CONFIG_ANDROID_PARANOID_NETWORK=n
-        EOF
-
-    - name: Add QCOM DMABUF
-      shell: bash
-      run: |
-        set -euo pipefail
-        cd "$CONFIG/kernel_platform"
-        cat >> common/arch/arm64/configs/gki_defconfig <<EOF
         CONFIG_SYNC_FILE=y
         CONFIG_SW_SYNC=y
         CONFIG_DMABUF_HEAPS=y
@@ -595,7 +579,7 @@ runs:
         CONFIG_QCOM_DMABUF_HEAPS_SYSTEM_SECURE=y
         CONFIG_QCOM_DMABUF_HEAPS_CMA=y
         CONFIG_QCOM_DMABUF_HEAPS_CARVEOUT=y
-        CONFIG_QCOM_DMABUF_HEAPS_BITSTREAM_CONTIG=y
+        CONFIG_QCOM_DMABUF_HEAPS_BITSTREAM_CONTIG=y       
         EOF
         
     - name: Add Oneplus BBR
